@@ -32,15 +32,5 @@ export const projects: Project[] = [
     url: "https://github.com/sm-abbas19/pca_praxis",
     skills: ["Python", "React", "Flask", "Docker", "Ollama", "LLM"],
     featured: true,
-  },
-  {
-    id: 3,
-    year: "2025",
-    title: "Passkey Authentication",
-    description:
-      "A Flask and Docker-based demo application for secure, passwordless authentication using WebAuthn passkeys. Features CAPTCHA verification, device credential management, and admin dashboard.",
-    url: "https://github.com/sm-abbas19/Passkey-Authentication",
-    skills: ["Python", "Flask", "Docker", "WebAuthn", "PostgreSQL", "Redis"],
-    featured: true,
-  },
+  }
 ];
