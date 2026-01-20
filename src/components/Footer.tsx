@@ -11,15 +11,7 @@ export default function Footer() {
         >
           Brittany Chiang
         </a>{" "}
-        and coded with{" "}
-        <a
-          href="https://www.anthropic.com/claude"
-          className="font-medium text-[#ccd6f6] hover:text-[#64ffda] focus-visible:text-[#64ffda]"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          Claude Opus 4.5
-        </a>
+        
         . Built with{" "}
         <a
           href="https://nextjs.org/"
