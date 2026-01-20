@@ -17,7 +17,7 @@ export const projects: Project[] = [
     year: "2025",
     title: "SecureVision",
     description:
-      "Final-year project: A real-time AI surveillance system integrating YOLOv11, BoTSORT, Pose Estimation, and Small Language Models to detect weapons, fights, and abandoned luggage with high accuracy on live feeds.",
+      "Architecting a high-throughput surveillance pipeline integrating YOLOv11, BoTSORT, and Pose Estimation. Engineered a custom fusion layer where visual detections trigger Small Language Model (SLM) analysis for context verification. Aiming to optimize inference to process at 25+ FPS on consumer hardware.",
     url: "#",
     skills: ["Python", "YOLOv11", "BoTSORT", "Pose Estimation", "SLM", "PyTorch", "OpenCV"],
     featured: true,
@@ -28,8 +28,8 @@ export const projects: Project[] = [
     year: "2025",
     title: "PCA-Praxis: Secure CLI Agent",
     description:
-      "A secure, on-premise Natural Language to Shell (NL2SH) agent. Translates English to Bash using a local LLM (Phi-3) and executes commands inside an ephemeral Docker sandbox with strict security guardrails.",
-    url: "https://github.com/sm-abbas19/pca_praxis",
+      "Engineered a local AI Agent that autonomously translates natural language into executable shell commands. Orchestrated Phi-3 (3.8B) within a custom reasoning loop to parse intent, execute tasks inside an ephemeral Docker sandbox, and self-correct syntax errors. Achieved 100% isolation for destructive commands and sub-200ms latency by running entirely on-premise without cloud APIs.",
+    url: "https://pcapraxis.netlify.app/",
     skills: ["Python", "React", "Flask", "Docker", "Ollama", "LLM"],
     featured: true,
   }
