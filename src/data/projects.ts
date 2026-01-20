@@ -36,16 +36,6 @@ export const projects: Project[] = [
   {
     id: 3,
     year: "2025",
-    title: "CollisionVision",
-    description:
-      "A real-time computer vision system using YOLOv8 and ByteTrack to detect objects, track their movement, and estimate collision probability. Features motion trail visualization and configurable parameters.",
-    url: "https://github.com/sm-abbas19/CollisionVision",
-    skills: ["Python", "YOLOv8", "ByteTrack", "Computer Vision", "Kalman Filter"],
-    featured: true,
-  },
-  {
-    id: 4,
-    year: "2025",
     title: "Passkey Authentication",
     description:
       "A Flask and Docker-based demo application for secure, passwordless authentication using WebAuthn passkeys. Features CAPTCHA verification, device credential management, and admin dashboard.",
