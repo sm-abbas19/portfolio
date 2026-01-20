@@ -17,7 +17,7 @@ export const projects: Project[] = [
     year: "2025",
     title: "SecureVision",
     description:
-      "Architecting a high-throughput surveillance pipeline integrating YOLOv11, BoTSORT, and Pose Estimation. Engineered a custom fusion layer where visual detections trigger Small Language Model (SLM) analysis for context verification. Aiming to optimize inference to process at 25+ FPS on consumer hardware.",
+      "Architecting a high-throughput surveillance pipeline integrating YOLOv11, BoTSORT, and Pose Estimation. Engineering a custom fusion layer where visual detections trigger Small Language Model (SLM) analysis for context verification. Aiming to optimize inference to process at 25+ FPS on consumer hardware.",
     url: "#",
     skills: ["Python", "YOLOv11", "BoTSORT", "Pose Estimation", "SLM", "PyTorch", "OpenCV"],
     featured: true,
