@@ -80,20 +80,17 @@ export default function Experience() {
         </ol>
 
         <div className="mt-12">
-          <a
-            className="inline-flex items-baseline font-medium leading-tight text-[#ccd6f6] hover:text-[#64ffda] focus-visible:text-[#64ffda] group/link text-base"
-            href="/resume.pdf"
-            target="_blank"
-            rel="noreferrer noopener"
-            aria-label="View Full Résumé (opens in a new tab)"
+          <span
+            className="inline-flex items-baseline font-medium leading-tight text-[#8892b0]/50 cursor-not-allowed text-base"
+            aria-label="View Full Résumé (coming soon)"
           >
             <span>
               View Full Résumé{" "}
               <ArrowUpRight
-                className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px"
+                className="inline-block h-4 w-4 shrink-0 ml-1 translate-y-px"
               />
             </span>
-          </a>
+          </span>
         </div>
       </div>
     </section>
