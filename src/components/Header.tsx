@@ -35,7 +35,7 @@ export default function Header({ activeSection }: HeaderProps) {
           Software Engineer
         </h2>
         <p className="mt-4 max-w-xs leading-normal text-[#8892b0]">
-          I build intelligent, scalable software systems with a focus on Computer Vision, NLP, and backend development.
+          I build intelligent software systems with a focus on the intersection of Backend Engineering and Applied AI; specifically leveraging Computer Vision and LLM Agents to solve real-world problems.
         </p>
 
         {/* Navigation */}

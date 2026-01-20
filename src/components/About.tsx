@@ -18,12 +18,7 @@ export default function About() {
         </p>
 
         <p className="mb-4">
-          Currently, I&apos;m wrapping up my final year at NUST, where I&apos;m
-          building SecureVision; a
-          real-time AI system that uses YOLOv11, BoTSORT, Pose Estimation,
-          and Small Language Models to detect weapons, fights, and abandoned luggage
-          on live camera feeds. It&apos;s been an exciting challenge combining multiple
-          AI domains into one cohesive system.
+          Currently, I am architecting SecureVision, a real-time AI system for my FYP that fuses Computer Vision (YOLOv11) with Small Language Models to detect threats with high precision. I am also exploring Agentic Workflows, recently building autonomous infrastructure agents.
         </p>
 
     
