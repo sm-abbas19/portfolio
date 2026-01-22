@@ -10,6 +10,7 @@ const navItems = [
   { id: "about", label: "ABOUT" },
   { id: "experience", label: "EXPERIENCE" },
   { id: "projects", label: "PROJECTS" },
+  { id: "techstack", label: "TECH STACK" },
 ];
 
 const socialLinks = [
