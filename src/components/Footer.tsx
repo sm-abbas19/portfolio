@@ -39,7 +39,7 @@ export default function Footer() {
         >
           Vercel
         </a>
-        .
+        . Coded from scratch in VSCode.
       </p>
     </footer>
   );
