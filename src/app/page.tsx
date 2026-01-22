@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
+import TechStack from "@/components/TechStack";
 import Footer from "@/components/Footer";
 import CursorGlow from "@/components/CursorGlow";
 
@@ -13,7 +14,7 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["about", "experience", "projects"];
+      const sections = ["about", "experience", "projects", "techstack"];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
@@ -47,6 +48,7 @@ export default function Home() {
             <About />
             <Experience />
             <Projects />
+            <TechStack />
             <Footer />
           </main>
         </div>
