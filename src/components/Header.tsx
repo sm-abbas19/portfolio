@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, FileText } from "lucide-react";
 
 interface HeaderProps {
   activeSection: string;
@@ -16,6 +16,7 @@ const navItems = [
 const socialLinks = [
   { icon: Github, href: "https://github.com/sm-abbas19", label: "GitHub" },
   { icon: Linkedin, href: "https://www.linkedin.com/in/smabbas-io/", label: "LinkedIn" },
+  { icon: FileText, href: "/resume.pdf", label: "Resume" },
 ];
 
 export default function Header({ activeSection }: HeaderProps) {
