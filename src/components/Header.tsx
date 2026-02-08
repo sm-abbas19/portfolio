@@ -1,6 +1,7 @@
 "use client";
 
-import { Github, Linkedin, FileText } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Github, Linkedin, FileText, Sun, Moon } from "lucide-react";
 
 interface HeaderProps {
   activeSection: string;
@@ -10,7 +11,6 @@ const navItems = [
   { id: "about", label: "ABOUT" },
   { id: "experience", label: "EXPERIENCE" },
   { id: "projects", label: "PROJECTS" }
-
 ];
 
 const socialLinks = [
@@ -20,6 +20,24 @@ const socialLinks = [
 ];
 
 export default function Header({ activeSection }: HeaderProps) {
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    const theme = localStorage.getItem('theme');
+    setIsDark(theme !== 'light');
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = isDark ? 'light' : 'dark';
+    setIsDark(!isDark);
+    localStorage.setItem('theme', newTheme);
+    if (newTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -30,13 +48,13 @@ export default function Header({ activeSection }: HeaderProps) {
   return (
     <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
       <div>
-        <h1 className="text-4xl font-bold tracking-tight text-[#ccd6f6] sm:text-5xl">
-          <a href="/">Muhammad Abbas</a>
+        <h1 className="text-4xl font-bold tracking-tight text-[var(--lightest-slate)] sm:text-5xl">
+          <a href="/">Syed Muhammad Abbas</a>
         </h1>
-        <h2 className="mt-3 text-lg font-medium tracking-tight text-[#ccd6f6] sm:text-xl">
+        <h2 className="mt-3 text-lg font-medium tracking-tight text-[var(--lightest-slate)] sm:text-xl">
           Software Engineer
         </h2>
-        <p className="mt-4 max-w-xs leading-normal text-[#8892b0]">
+        <p className="mt-4 max-w-xs leading-normal text-[var(--slate)]">
           I build intelligent software systems with a focus on the intersection of Backend Engineering and Applied AI; specifically leveraging Computer Vision and LLM Agents to solve real-world problems.
         </p>
 
@@ -51,13 +69,13 @@ export default function Header({ activeSection }: HeaderProps) {
                     activeSection === item.id ? "active" : ""
                   }`}
                 >
-                  <span className="nav-indicator mr-4 h-px w-8 bg-[#8892b0] transition-all group-hover:w-16 group-hover:bg-[#ccd6f6] group-focus-visible:w-16 group-focus-visible:bg-[#ccd6f6]"></span>
+                  <span className="nav-indicator mr-4 h-px w-8 bg-[var(--slate)] transition-all group-hover:w-16 group-hover:bg-[var(--lightest-slate)] group-focus-visible:w-16 group-focus-visible:bg-[var(--lightest-slate)]"></span>
                   <span
                     className={`nav-text text-xs font-bold uppercase tracking-widest ${
                       activeSection === item.id
-                        ? "text-[#ccd6f6]"
-                        : "text-[#8892b0]"
-                    } group-hover:text-[#ccd6f6] group-focus-visible:text-[#ccd6f6]`}
+                        ? "text-[var(--lightest-slate)]"
+                        : "text-[var(--slate)]"
+                    } group-hover:text-[var(--lightest-slate)] group-focus-visible:text-[var(--lightest-slate)]`}
                   >
                     {item.label}
                   </span>
@@ -73,7 +91,7 @@ export default function Header({ activeSection }: HeaderProps) {
         {socialLinks.map((social) => (
           <li key={social.label} className="text-xs">
             <a
-              className="social-link block p-1 text-[#8892b0] hover:text-[#64ffda] transition-all hover:-translate-y-1"
+              className="social-link block p-1 text-[var(--slate)] hover:text-[var(--green)] transition-all hover:-translate-y-1"
               href={social.href}
               target="_blank"
               rel="noreferrer noopener"
@@ -83,6 +101,15 @@ export default function Header({ activeSection }: HeaderProps) {
             </a>
           </li>
         ))}
+        <li className="text-xs">
+          <button
+            onClick={toggleTheme}
+            className="block p-1 text-[var(--slate)] hover:text-[var(--green)] transition-all hover:-translate-y-1"
+            aria-label="Toggle theme"
+          >
+            {isDark ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+        </li>
       </ul>
     </header>
   );

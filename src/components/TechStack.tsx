@@ -20,8 +20,8 @@ export default function TechStack() {
       className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
       aria-label="Tech Stack"
     >
-      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-[#0a192f]/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:mb-6">
-        <h2 className="text-sm font-bold uppercase tracking-widest text-[#ccd6f6]">
+      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-[var(--navy)]/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:mb-6">
+        <h2 className="text-sm font-bold uppercase tracking-widest text-[var(--lightest-slate)]">
           Tech Stack
         </h2>
       </div>
@@ -31,7 +31,7 @@ export default function TechStack() {
           {technologies.map((tech) => (
             <li
               key={tech}
-              className="flex items-center rounded-full bg-[#64ffda]/10 px-3 py-1 text-xs font-medium leading-5 text-[#64ffda]"
+              className="flex items-center rounded-full bg-[var(--green-tint)] px-3 py-1 text-xs font-medium leading-5 text-[var(--green)]"
             >
               {tech}
             </li>
