@@ -36,6 +36,11 @@ body {
   color: var(--slate);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+*,
+*::before,
+*::after {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
 
 ::selection {
   background-color: var(--lightest-navy);

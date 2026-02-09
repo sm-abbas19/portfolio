@@ -20,7 +20,7 @@ export default function Projects() {
         <ol className="group/list">
           {featuredProjects.map((project) => (
             <li key={project.id} className="mb-12">
-              <div className="project-card group relative pb-1 transition-all lg:hover:!opacity-100 lg:group-hover/list:opacity-50 rounded-lg p-4 -mx-4">
+              <div className="project-card group relative gap-4 transition-all lg:hover:!opacity-100 lg:group-hover/list:opacity-50 rounded-lg p-4 -mx-4">
                 <div className="z-10">
                   <h3>
                     <a

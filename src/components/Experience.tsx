@@ -18,7 +18,7 @@ export default function Experience() {
         <ol className="group/list">
           {experiences.map((exp) => (
             <li key={exp.id} className="mb-12">
-              <div className="experience-card group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50 rounded-lg p-4 -mx-4">
+              <div className="experience-card group relative grid gap-4 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50 rounded-lg p-4 -mx-4">
                 <header
                   className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-[var(--slate)] sm:col-span-2"
                   aria-label={exp.dateRange}
