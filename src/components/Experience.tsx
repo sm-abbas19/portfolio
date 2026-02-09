@@ -1,7 +1,33 @@
+"use client";
+
 import { experiences } from "@/data/experience";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Experience() {
+  const [activeId, setActiveId] = useState<number | null>(null);
+  const cardRefs = useRef<Map<number, HTMLDivElement>>(new Map());
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = Number(entry.target.getAttribute("data-id"));
+          if (entry.isIntersecting) {
+            setActiveId(id);
+          } else {
+            setActiveId((prev) => (prev === id ? null : prev));
+          }
+        });
+      },
+      { threshold: 0.9 }
+    );
+
+    cardRefs.current.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
       id="experience"
@@ -18,7 +44,15 @@ export default function Experience() {
         <ol className="group/list">
           {experiences.map((exp) => (
             <li key={exp.id} className="mb-12">
-              <div className="experience-card group relative grid gap-4 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50 rounded-lg p-4 -mx-4">
+              <div
+                ref={(el) => {
+                  if (el) cardRefs.current.set(exp.id, el);
+                }}
+                data-id={exp.id}
+                className={`experience-card group relative grid gap-4 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50 rounded-lg p-4 -mx-4 ${
+                  activeId === exp.id ? "bg-[var(--green-tint)] lg:bg-transparent" : ""
+                }`}
+              >
                 <header
                   className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-[var(--slate)] sm:col-span-2"
                   aria-label={exp.dateRange}

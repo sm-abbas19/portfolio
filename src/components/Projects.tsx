@@ -1,8 +1,33 @@
+"use client";
+
 import { projects } from "@/data/projects";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Projects() {
   const featuredProjects = projects.filter((p) => p.featured);
+  const [activeId, setActiveId] = useState<number | null>(null);
+  const cardRefs = useRef<Map<number, HTMLDivElement>>(new Map());
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = Number(entry.target.getAttribute("data-id"));
+          if (entry.isIntersecting) {
+            setActiveId(id);
+          } else {
+            setActiveId((prev) => (prev === id ? null : prev));
+          }
+        });
+      },
+      { threshold: 0.9 }
+    );
+
+    cardRefs.current.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section
@@ -20,7 +45,15 @@ export default function Projects() {
         <ol className="group/list">
           {featuredProjects.map((project) => (
             <li key={project.id} className="mb-12">
-              <div className="project-card group relative gap-4 transition-all lg:hover:!opacity-100 lg:group-hover/list:opacity-50 rounded-lg p-4 -mx-4">
+              <div
+                ref={(el) => {
+                  if (el) cardRefs.current.set(project.id, el);
+                }}
+                data-id={project.id}
+                className={`project-card group relative gap-4 transition-all lg:hover:!opacity-100 lg:group-hover/list:opacity-50 rounded-lg p-4 -mx-4 ${
+                  activeId === project.id ? "bg-[var(--green-tint)] lg:bg-transparent" : ""
+                }`}
+              >
                 <div className="z-10">
                   <h3>
                     <a
