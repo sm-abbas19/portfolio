@@ -23,9 +23,16 @@ export default function Header({ activeSection }: HeaderProps) {
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
-    const theme = localStorage.getItem('theme');
-    setIsDark(theme !== 'light');
-  }, []);
+  const theme = localStorage.getItem('theme');
+  if (theme === 'dark') {
+    setIsDark(true);
+  } else if (theme === 'light') {
+    setIsDark(false);
+  } else {
+    // Default to system preference
+    setIsDark(window.matchMedia('(prefers-color-scheme: dark)').matches);
+  }
+}, []);
 
   const toggleTheme = () => {
     const newTheme = isDark ? 'light' : 'dark';
