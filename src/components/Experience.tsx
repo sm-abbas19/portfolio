@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 export default function Experience() {
   const [activeId, setActiveId] = useState<number | null>(null);
   const cardRefs = useRef<Map<number, HTMLDivElement>>(new Map());
+  const animateRefs = useRef<Map<number, HTMLLIElement>>(new Map());
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,6 +29,24 @@ export default function Experience() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const fadeObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            fadeObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.05, rootMargin: "0px 0px -40px 0px" }
+    );
+
+    animateRefs.current.forEach((el) => fadeObserver.observe(el));
+
+    return () => fadeObserver.disconnect();
+  }, []);
+
   return (
     <section
       id="experience"
@@ -43,7 +62,7 @@ export default function Experience() {
       <div>
         <ol className="group/list">
           {experiences.map((exp) => (
-            <li key={exp.id} className="mb-12">
+            <li key={exp.id} className="mb-12 card-animate" ref={(el) => { if (el) animateRefs.current.set(exp.id, el); }}>
               <div
                 ref={(el) => {
                   if (el) cardRefs.current.set(exp.id, el);

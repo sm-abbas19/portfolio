@@ -1,17 +1,20 @@
 export default function TechStack() {
   const technologies = [
+    "Java",
+    "Spring Boot",
     "Python",
     "FastAPI",
-    "PyTorch",
-    "TensorFlow",
-    "OpenCV",
-    "Docker",
     "PostgreSQL",
+    "TypeScript",
+    "Next.js",
+    "Docker",
+    "PyTorch",
+    "OpenCV",
+    "n8n",
+    "LangChain",
+    "AWS",
+    "Node.js",
     "Linux",
-    "Roboflow",
-    "C++",
-    "Java",
-    "AWS (SageMaker, MLOps)",
   ];
 
   return (

@@ -8,6 +8,7 @@ export default function Projects() {
   const featuredProjects = projects.filter((p) => p.featured);
   const [activeId, setActiveId] = useState<number | null>(null);
   const cardRefs = useRef<Map<number, HTMLDivElement>>(new Map());
+  const animateRefs = useRef<Map<number, HTMLLIElement>>(new Map());
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -29,6 +30,24 @@ export default function Projects() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const fadeObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            fadeObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.05, rootMargin: "0px 0px -40px 0px" }
+    );
+
+    animateRefs.current.forEach((el) => fadeObserver.observe(el));
+
+    return () => fadeObserver.disconnect();
+  }, []);
+
   return (
     <section
       id="projects"
@@ -44,7 +63,7 @@ export default function Projects() {
       <div>
         <ol className="group/list">
           {featuredProjects.map((project) => (
-            <li key={project.id} className="mb-12">
+            <li key={project.id} className="mb-12 card-animate" ref={(el) => { if (el) animateRefs.current.set(project.id, el); }}>
               <div
                 ref={(el) => {
                   if (el) cardRefs.current.set(project.id, el);
@@ -66,8 +85,11 @@ export default function Projects() {
                       <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
                       <span className="project-title">
                         {project.title}
+                        <span className="ml-2 inline-flex items-center rounded-full bg-[var(--lightest-navy)] px-2 py-0.5 text-xs font-medium text-[var(--slate)]">
+                          {project.year}
+                        </span>
                         {project.inProgress && (
-                          <span className="ml-2 inline-flex items-center rounded-full bg-yellow-400/10 px-2 py-0.5 text-xs font-medium text-yellow-600 dark:text-yellow-300">
+                          <span className="ml-1.5 inline-flex items-center rounded-full bg-yellow-400/10 px-2 py-0.5 text-xs font-medium text-yellow-600 dark:text-yellow-300">
                             In Progress
                           </span>
                         )}
