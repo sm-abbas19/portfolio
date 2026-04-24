@@ -13,11 +13,11 @@ export default function About() {
 
       <div className="text-[var(--slate)]">
         <p className="mb-4">
-          I&apos;m a software engineer at the intersection of backend engineering and applied AI, with a focus on building systems that actually work in the real world.
+          I&apos;m a software engineer at the intersection of full stack engineering and applied AI, with a focus on building systems that actually work in the real world.
         </p>
 
         <p className="mb-4">
-          I build scalable backend systems and apply AI where it creates real impact. My final-year project, SecureVision, fuses Computer Vision (YOLOv11) with Small Language Models for real-time threat detection. I also build agentic workflows and autonomous infrastructure agents.
+          I build scalable systems and apply AI where it creates real impact for users. 
         </p>
 
         <p className="mb-4">
