@@ -14,9 +14,9 @@ const navItems = [
 ];
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com/sm-abbas19", label: "GitHub" },
-  { icon: Linkedin, href: "https://www.linkedin.com/in/smabbas-io/", label: "LinkedIn" },
-  { icon: FileText, href: "/resume.pdf", label: "Resume" },
+  { icon: Github, href: "https://github.com/sm-abbas19", label: "GitHub", disabled: false },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/smabbas-io/", label: "LinkedIn", disabled: false },
+  { icon: FileText, href: "/resume.pdf", label: "Resume", disabled: true },
 ];
 
 export default function Header({ activeSection }: HeaderProps) {
@@ -97,15 +97,24 @@ export default function Header({ activeSection }: HeaderProps) {
       <ul className="ml-1 mt-8 flex items-center gap-5" aria-label="Social media">
         {socialLinks.map((social) => (
           <li key={social.label} className="text-xs">
-            <a
-              className="social-link block p-1 text-[var(--slate)] hover:text-[var(--green)] transition-all hover:-translate-y-1"
-              href={social.href}
-              target="_blank"
-              rel="noreferrer noopener"
-              aria-label={`${social.label} (opens in a new tab)`}
-            >
-              <social.icon size={20} />
-            </a>
+            {social.disabled ? (
+              <span
+                className="block p-1 text-[var(--slate)] opacity-30 cursor-not-allowed"
+                aria-label={`${social.label} (unavailable)`}
+              >
+                <social.icon size={20} />
+              </span>
+            ) : (
+              <a
+                className="social-link block p-1 text-[var(--slate)] hover:text-[var(--green)] transition-all hover:-translate-y-1"
+                href={social.href}
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label={`${social.label} (opens in a new tab)`}
+              >
+                <social.icon size={20} />
+              </a>
+            )}
           </li>
         ))}
         <li className="text-xs">
