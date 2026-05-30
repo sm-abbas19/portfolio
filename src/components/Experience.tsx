@@ -134,7 +134,7 @@ export default function Experience() {
 
         <div className="mt-12">
           <a
-            className="inline-flex items-center font-medium leading-tight text-[var(--lightest-slate)] hover:text-[var(--green)] focus-visible:text-[var(--green)] group"
+            className="inline-flex items-center font-medium leading-tight text-[var(--slate)] opacity-50 cursor-not-allowed pointer-events-none group"
             href="/resume.pdf"
             target="_blank"
             rel="noreferrer noopener"
