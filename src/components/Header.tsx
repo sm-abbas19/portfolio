@@ -61,9 +61,6 @@ export default function Header({ activeSection }: HeaderProps) {
         <h2 className="mt-3 text-lg font-medium tracking-tight text-[var(--lightest-slate)] sm:text-xl">
           Software Engineer
         </h2>
-        <p className="mt-4 max-w-xs leading-normal text-[var(--slate)]">
-          I build scalable systems and apply AI where it creates real impact; from production APIs to agentic workflows and intelligent automation.
-        </p>
 
         {/* Navigation */}
         <nav className="nav hidden lg:block" aria-label="In-page jump links">

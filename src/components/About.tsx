@@ -13,20 +13,7 @@ export default function About() {
 
       <div className="text-[var(--slate)]">
         <p className="mb-4">
-          I&apos;m a software engineer at the intersection of full stack engineering and applied AI, with a focus on building systems that actually work in the real world. I build scalable systems and apply AI where it creates real impact for users. 
-
-        </p>
-
-      
-        <p className="mb-4">
-          Outside of work, I have led operations for Bunyaad Pakistan
-          social initiatives, mentored freshmen at NUST, and held leadership roles in multiple student societies. I believe in building
-          things that matter and sharing knowledge along the way.
-        </p>
-
-        <p>
-          When I&apos;m not coding, you&apos;ll probably find me binge-watching TV shows,
-          hanging out with friends, or learning German.
+          I&apos;m a software engineer at the intersection of full stack engineering and applied AI, with a focus on building systems that actually work in the real world.
         </p>
       </div>
     </section>
