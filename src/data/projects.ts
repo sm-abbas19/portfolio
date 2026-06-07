@@ -34,6 +34,16 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    id: 3,
+    year: "2026",
+    title: "ilovelanguages",
+    description:
+      "Built a full-stack AI-powered German language learning webapp showcasing multiagent orchestration, streaming, and LLM evals. Designed a LangGraph pipeline with three specialist agents (conversation partner, grammar coach, vocabulary coach) routing heuristically — no supervisor LLM call. Integrated Gemini Flash Lite for story generation, annotation, writing-coach grading, and spaced-recall audio lessons. Features JWT auth, SQLite persistence, Langfuse observability, and a Next.js frontend with SSE streaming, TTS, and 3D flashcard animations.",
+    url: "https://ilovelanguages.vercel.app",
+    skills: ["Python", "FastAPI", "LangGraph", "Gemini API", "Next.js", "Tailwind CSS", "SQLite", "LLM Evals", "Langfuse"],
+    featured: true,
+  },
+  {
     id: 4,
     year: "2025",
     title: "PCA-Praxis: Secure CLI Agent",
